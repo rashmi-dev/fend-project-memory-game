@@ -6,8 +6,6 @@ $(document).ready(function() {
     let cards = [];
     let openCards = [];
     let moves = 0;
-    let prevCard = null;
-    let matchCard = [];
     $(".card").each(function(obj,index) {
         cards.push($(this).find("i").attr("class"));
     });
@@ -51,32 +49,34 @@ $(document).ready(function() {
      *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
      *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
      */
-   
-    $("li.card").click(function() {
-        moves++;
-        if(openCards.length!=-1){
-            prevCard = openCards[openCards.length-1];
-        }
-        displayCard($(this),prevCard);
-    });
-    
-
-    
-    function displayCard(card,prevCard) {
-        if(!card.hasClass("open show")) {
-            card.addClass("open show");
-            addToOpenCardList(card);
-        }
-        if(prevCard!=null && moves%2==0 ){
-            console.log("is equal"+prevCard.children().attr("class")===card.children().attr("class"));
-            if(prevCard!=null && prevCard.children().attr("class")===card.children().attr("class")){
-                lockMatchngCards(prevCard,card);
+    //function onClick() {
+        $(".card").click(function() {
+            moves++;
+            updateMoves(moves);
+            displayCard($(this));
+            var cardSymbNm  = $(this).find("i").attr("class");
+            var prevSym = openCards[openCards.length-1];
+            if(openCards=="") {
+                addToList($(this));
+            }
+            else if(openCards[openCards.length-1]===cardSymbNm){
+                lockMatchngCards($(this));
+                addToList($(this)); 
             }
             else {
-                hideCards(prevCard,card);
+                removeFromList(); 
+                hideCards(prevSym,$(this));
             }
+            
+        });
+    //}
+
+    
+    function displayCard(card) {
+        if(!card.hasClass("open show")) {
+            card.addClass("open show");
         }
-     }
+    }
     
         
     function hasSymbol(symbol) {
@@ -93,42 +93,42 @@ $(document).ready(function() {
     }
         
         
-    function addToOpenCardList(symbol) {
-        if(!openCards.includes(symbol) && openCards.length<17) {
+    function addToList(symbol) {
+        if(!openCards.includes(symbol)) {
             openCards.push(symbol);
         }
     }
     
         
-    function removeFromList(num) {
-        for(var i=0;i<=num;i++){
-           openCards.pop(); 
-        }
+    function removeFromList(symbol) {
+        openCards.pop();
     }
     
     
     function hideCards(prevSym,nextSym) {
-        setTimeout(function(){
-           prevSym.addClass("shake").removeClass("open show");
-           nextSym.addClass("shake").removeClass("open show");
-           removeFromList(2);
-        },200);
-        prevSym.removeClass("shake");
-        nextSym.removeClass("shake");
+        var splitPrev = prevSym.split(" ");
+        var splitNext = nextSym.split(" ");
+        console.log("hide cards"+splitPrev[1]+""+splitNext[1]);
+        
+        setTimeout(function() {
+             $("."+splitNext[1]).parent("li.card").removeClass("open show").addClass("mismatch shake");
+             $("."+splitPrev[1]).parent("li.card").removeClass("open show").addClass("mismatch shake");
+         },100);
+            
+        
     }
     
     
-    function lockMatchngCards(prevObj,thisObj) {
-        console.log("lockcards"+prevObj+""+thisObj);
-        prevObj.removeClass("open show").addClass("match");
-        thisObj.removeClass("open show").addClass("match"); 
-        matchCard.push(prevObj);
-        matchCard.push(thisObj)
-        console.log(matchCard.length);
-        if(matchCard.length==16){
-            $(".container").addClass("displayNone");
-            $(".center").removeClass("displayNone");
-        }
+    function lockMatchngCards(symbol) {
+        //slipt the class name to get fa-"*" instead of fa fa-"*"
+        var splitSymbol = symbol.split(" ");
+        
+        //iterate through each card symbol ,find its parent and add "match" class to it.
+        $("i."+splitSymbol[1]).each(function(obj,i) {
+            $(this).parent("li.card").addClass("match").removeClass("open show");
+            openCards.push(splitSymbol[1]);
+        });
+        
     }
     
     
