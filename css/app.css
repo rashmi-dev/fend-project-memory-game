@@ -107,3 +107,72 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+.transition {
+    transition: 1.2s;
+}
+
+/*
+.deck .card.mismatch {
+    cursor: default;
+    background: #F44336;
+    font-size: 33px;
+}
+*/
+
+/*shake style from w3schools https://www.w3schools.com/howto/howto_css_shake_image.asp*/
+.shake {
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 0.5s; 
+    /* When the animation is finished, start again */
+    animation-iteration-count: 1; 
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg);background: #F44336; font-size: 33px;cursor: default; }
+    10% { transform: translate(-1px, -2px) rotate(-1deg);background: #F44336;font-size: 33px;cursor: default; }
+    20% { transform: translate(-3px, 0px) rotate(1deg);background: #F44336;font-size: 33px; cursor: default;}
+    30% { transform: translate(3px, 2px) rotate(0deg);background: #F44336;font-size: 33px;cursor: default; }
+    40% { transform: translate(1px, -1px) rotate(1deg);background: #F44336;font-size: 33px;cursor: default; }
+    50% { transform: translate(-1px, 2px) rotate(-1deg);background: #F44336;font-size: 33px;cursor: default; }
+    60% { transform: translate(-3px, 1px) rotate(0deg); background: #F44336;font-size: 33px;cursor: default;}
+    70% { transform: translate(3px, 1px) rotate(-1deg);background: #F44336;font-size: 33px;cursor: default; }
+    80% { transform: translate(-1px, -1px) rotate(1deg); background: #F44336;font-size: 33px;cursor: default;}
+    90% { transform: translate(1px, 2px) rotate(0deg); background: #F44336;font-size: 33px;cursor: default;}
+    100% { transform: translate(1px, -2px) rotate(-1deg);background: #F44336;font-size: 33px; cursor: default;}
+}
+
+.center {
+    margin: 0 auto!important;
+    width:45%;
+    height:auto;
+    text-align: center;
+    border:2px solid #cecece;
+    background: #f9fafb;
+    border-radius: 10px;
+    
+}
+.close{
+    font-size:50px;
+    float:right;
+}
+
+hr {
+    color: #02ccba;
+}
+
+button {
+    border-color: #4caf50!important;
+    box-shadow: 0!important
+   /* padding:0.2%;*/
+}
+
+.far {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 7rem;
+    color: #9fdea2;
+}
+
+.displayNone {
+    display: none!important;
+}
