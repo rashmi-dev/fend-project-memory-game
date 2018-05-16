@@ -60,7 +60,10 @@ $(document).ready(function() {
         displayCard($(this),prevCard);
     });
     
-
+    
+    $(".restart").click(function() {
+        displayCards(cards);
+    });
     
     function displayCard(card,prevCard) {
         if(!card.hasClass("open show")) {
@@ -143,6 +146,8 @@ $(document).ready(function() {
     function updateRating() {
         
     }
+    
+    
     
     
     /*#Todo

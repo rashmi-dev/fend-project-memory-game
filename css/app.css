@@ -142,37 +142,27 @@ h1 {
     100% { transform: translate(1px, -2px) rotate(-1deg);background: #F44336;font-size: 33px; cursor: default;}
 }
 
-.center {
-    margin: 0 auto!important;
-    width:45%;
-    height:auto;
-    text-align: center;
-    border:2px solid #cecece;
-    background: #f9fafb;
-    border-radius: 10px;
-    
-}
-.close{
-    font-size:50px;
-    float:right;
+
+.displayNone{
+    display: none!important;
 }
 
-hr {
-    color: #02ccba;
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    vertical-align: middle;
 }
 
 button {
     border-color: #4caf50!important;
     box-shadow: 0!important
-   /* padding:0.2%;*/
+    padding:0.2%;
 }
 
 .far {
-    font-family: 'Open Sans', sans-serif;
     font-size: 7rem;
     color: #9fdea2;
-}
-
-.displayNone {
-    display: none!important;
 }
