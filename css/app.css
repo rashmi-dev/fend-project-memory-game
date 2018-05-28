@@ -2,11 +2,13 @@ html {
     box-sizing: border-box;
 }
 
+
 *,
 *::before,
 *::after {
     box-sizing: inherit;
 }
+
 
 html,
 body {
@@ -16,10 +18,12 @@ body {
     padding: 0;
 }
 
+
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    background: #ffffff url('../img/carnival.jpg')center; /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
 }
+
 
 .container {
     display: flex;
@@ -28,19 +32,20 @@ body {
     flex-direction: column;
 }
 
+
 h1 {
     font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-weight: bold;
 }
+
 
 /*
  * Styles for the deck of cards
  */
-
 .deck {
     width: 660px;
     min-height: 680px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    background: linear-gradient(160deg, #c35077 0%, #02ccba 100%);
     padding: 32px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
@@ -50,6 +55,7 @@ h1 {
     align-items: center;
     margin: 0 0 3em;
 }
+
 
 .deck .card {
     height: 125px;
@@ -65,15 +71,18 @@ h1 {
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
+
 .deck .card.open {
     transform: rotateY(0);
-    background: #02b3e4;
+    background: #c35077;
     cursor: default;
 }
+
 
 .deck .card.show {
     font-size: 33px;
 }
+
 
 .deck .card.match {
     cursor: default;
@@ -84,12 +93,12 @@ h1 {
 /*
  * Styles for the Score Panel
  */
-
 .score-panel {
     text-align: left;
     width: 345px;
     margin-bottom: 10px;
 }
+
 
 .score-panel .stars {
     margin: 0;
@@ -98,27 +107,23 @@ h1 {
     margin: 0 5px 0 0;
 }
 
+
 .score-panel .stars li {
     list-style: none;
     display: inline-block;
 }
+
 
 .score-panel .restart {
     float: right;
     cursor: pointer;
 }
 
+
 .transition {
     transition: 1.2s;
 }
 
-/*
-.deck .card.mismatch {
-    cursor: default;
-    background: #F44336;
-    font-size: 33px;
-}
-*/
 
 /*shake style from w3schools https://www.w3schools.com/howto/howto_css_shake_image.asp*/
 .shake {
@@ -128,26 +133,82 @@ h1 {
     animation-iteration-count: 1; 
 }
 
+
 @keyframes shake {
-    0% { transform: translate(1px, 1px) rotate(0deg);background: #F44336; font-size: 33px;cursor: default; }
-    10% { transform: translate(-1px, -2px) rotate(-1deg);background: #F44336;font-size: 33px;cursor: default; }
-    20% { transform: translate(-3px, 0px) rotate(1deg);background: #F44336;font-size: 33px; cursor: default;}
-    30% { transform: translate(3px, 2px) rotate(0deg);background: #F44336;font-size: 33px;cursor: default; }
-    40% { transform: translate(1px, -1px) rotate(1deg);background: #F44336;font-size: 33px;cursor: default; }
-    50% { transform: translate(-1px, 2px) rotate(-1deg);background: #F44336;font-size: 33px;cursor: default; }
-    60% { transform: translate(-3px, 1px) rotate(0deg); background: #F44336;font-size: 33px;cursor: default;}
-    70% { transform: translate(3px, 1px) rotate(-1deg);background: #F44336;font-size: 33px;cursor: default; }
-    80% { transform: translate(-1px, -1px) rotate(1deg); background: #F44336;font-size: 33px;cursor: default;}
-    90% { transform: translate(1px, 2px) rotate(0deg); background: #F44336;font-size: 33px;cursor: default;}
-    100% { transform: translate(1px, -2px) rotate(-1deg);background: #F44336;font-size: 33px; cursor: default;}
+    0% { 
+        transform: translate(1px, 1px) rotate(0deg);
+        background: #F44336;
+        font-size: 33px;cursor: default;
+    }
+    10% { 
+        transform: translate(-1px, -2px) rotate(-1deg);
+        background: #F44336;
+        font-size: 33px;
+        cursor: default;
+    }
+    20% { 
+        transform: translate(-3px, 0px) rotate(1deg);
+        background: #F44336;
+        font-size: 33px;
+        cursor: default;
+    }
+    30% { 
+        transform: translate(3px, 2px) rotate(0deg);
+        background: #F44336;
+        font-size: 33px;
+        cursor: default;
+    }
+    40% { 
+        transform: translate(1px, -1px) rotate(1deg);
+        background: #F44336;
+        font-size: 33px;
+        cursor: default;
+    }
+    50% { 
+        transform: translate(-1px, 2px) rotate(-1deg);
+        background: #F44336;
+        font-size: 33px;
+        cursor: default;
+    }
+    60% { 
+        transform: translate(-3px, 1px) rotate(0deg);
+        background: #F44336;
+        font-size: 33px;
+        cursor: default;
+    }
+    70% { 
+        transform: translate(3px, 1px) rotate(-1deg);
+        background: #F44336;
+        font-size: 33px;
+        cursor: default;
+    }
+    80% { 
+        transform: translate(-1px, -1px) rotate(1deg);
+        background: #F44336;
+        font-size: 33px;
+        cursor: default;
+    }
+    90% { 
+        transform: translate(1px, 2px) rotate(0deg);
+        background: #F44336;
+        font-size: 33px;
+        cursor: default;
+    }
+    100% { 
+        transform: translate(1px, -2px) rotate(-1deg);
+        background: #F44336;
+        font-size: 33px;
+        cursor: default;
+    }
 }
 
 
-.displayNone{
+.displayNone {
     display: none!important;
 }
 
-.center {
+
+.winner-page {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -156,13 +217,159 @@ h1 {
     vertical-align: middle;
 }
 
-button {
-    border-color: #4caf50!important;
-    box-shadow: 0!important
-    padding:0.2%;
+
+input[type="button"] {
+    padding: 2% 5%;
+    font-weight: bold;
+    border: 0;
 }
+
 
 .win-check {
     font-size: 7rem;
-    color: #9fdea2;
+    color: #35ef54;
+}
+
+
+.winner-page {
+    background: #ffffff url('../img/carnival.jpg')center;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+.mrgT20 {
+    margin-top: 20px;
+}
+
+
+#win-headline {
+    font-size: 36px;
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+
+
+.stars .fa-star {
+    color: #f3c30e;
+}
+
+
+.fa-repeat {
+    color: #e91e63;
+}
+
+
+.border-wall {
+    height: 35%;
+    width: 45%;
+    text-align: center;
+    border-radius: 10px;
+}
+
+
+#moves-info {
+    color: #ffeb3b;
+    font-size: 22px;
+}
+
+
+#happy-msg {
+    color: #6f2a68;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+
+.timer {
+    float: right;
+    padding: .2% 20%;
+    color: #0000ff;
+}
+
+
+.modal {
+    width: 50%;
+    height: 25%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.modal-heading {
+    font-weight: bold;
+    text-align: left!important;
+}
+
+
+/* The Modal (background) */
+.modal {
+    border-radius:10px;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,.4); /* Black w/ opacity */
+}
+
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: .4s;
+    animation-name: animatetop;
+    animation-duration: .4s
+}
+
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #02ccba;
+    color: white;
+}
+
+
+.modal-body {
+    padding: 2px 16px;
+}
+
+
+#restart {
+    margin-bottom: 10px;
+    color: #fff;
+    background: #02ccba;
+}
+
+
+.replay{
+    background: #7c599d;
 }

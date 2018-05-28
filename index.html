@@ -1,4 +1,4 @@
-<!doctype html>
+<!Doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -6,30 +6,23 @@
     <meta name="description" content="">
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
-  
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-    <div class="container ">
+    <div class="container">
         <header>
             <h1>Matching Game</h1>
         </header>
-
         <section class="score-panel">
         	<ul class="stars">
-        		<li><i class="fa fa-star-o"></i></li>
-        		<li><i class="fa fa-star-o"></i></li>
-        		<li><i class="fa fa-star-o"></i></li>
-        	</ul>
-
-        	<span class="moves">3</span> Moves
-
+            </ul>
+            <span class="moves">0</span> Moves
             <div class="restart">
-        		<i class="fa fa-repeat"></i>
+        		<i class="fa fa-repeat fa-lg"></i>
         	</div>
+        	<div class="timer"></div>
         </section>
-
         <ul class="deck">
             <li class="card">
                 <i class="fa fa-diamond"></i>
@@ -81,13 +74,27 @@
             </li>
         </ul>
     </div>
-    <section class="center displayNone">
-            <i class="win-check fa fa-check-circle"></i>
-            <h2 id="win-msg">Congratulations! You won!</h2>
-            <h5 id="moves-info"></h5>
-            <h5 id="happy-msg"></h5>
-            <button class="ui-button ui-widget ui-corner-all">Play again!</button>
+    <section class="winner-page displayNone">
+           <div class="border-wall">
+              <i class="win-check fa fa-check-circle-o"></i>
+              <h2 id="win-headline">Congratulations! You won!</h2>
+              <div id="moves-info"></div>
+              <div id="happy-msg">Wohooooo!</div>
+              <input type="button" class="mrgT20 replay" value="Play again!"/>
+           </div>
     </section>
+    <div id="myModal" class="modal displayNone">
+         <!-- Modal content -->
+         <div class="modal-content">
+            <div class="modal-header">
+              <h2>Alert!</h2>
+            </div>
+            <div class="modal-body">
+              <h3>Timeout ! Please try again!</h3>
+              <input type="button" class="" id="restart" value="OK"/>
+            </div>
+         </div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="js/app.js"></script>
