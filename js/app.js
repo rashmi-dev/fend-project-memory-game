@@ -14,12 +14,14 @@
             cards.push($(this).find("i").attr("class"));
         });
         
+        
         /*display cards and call shuffle inside it */
         displayCards(cards);  
         /* display timer function and start the timer */
         displayTimer();
         /* display rating initial rating is 3 */
         displayRating(3);
+        
         
         /* on card click function */
         $("li.card").click(function() {
@@ -32,6 +34,7 @@
             displayCard($(this),prevCard);
         });
 
+        
         /* on replay button click on the winner page it resets the game and starts the timer */
         $(".replay,.restart").click( function() {
             resetMoves();
@@ -84,7 +87,8 @@
             return array;
         }
 
-        //Timer function from stackoverflow
+        
+        //Timer function from stackoverflow.com
         function displayTimer(clear) {
             var timer2 = "5:00";
             interval = setInterval(function() {
@@ -129,6 +133,7 @@
              resetMoves();
              replay();
         });
+        
         
         function displayCard(card,prevCard) {
             if(!card.hasClass("open show")) {
@@ -232,6 +237,7 @@
             displayTimer();
         }
 
+        
         function displayRating(num) {
             $(".stars li").remove();
             if(matchCard.length <= 0 && $(".stars li").length == 0){
