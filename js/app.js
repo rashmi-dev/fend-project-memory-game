@@ -8,9 +8,12 @@
         let num_stars = 0;
         let interval = null;
         
+        
+        /* disable double click on the cards */
         $("li.card").dblclick(function(e){
             return false;
         });
+        
         
         /*
         * Create a list that holds all of your cards
@@ -30,9 +33,10 @@
         
         /* on card click function */
         $("li.card").click(function() {
+            /* increase moves only if the card is not already open or matched */
            if(!$(this).hasClass("open show") && !$(this).hasClass("match")){
                 moves++;
-           }
+            }
             updateMoves(moves);
             updateRating();
             if(openCards.length != -1){
@@ -41,10 +45,6 @@
            if(!$(this).hasClass("match") || !prevCard.hasClass("match")) {
                displayCard($(this),prevCard);
            }
-                
-           
-           
-            
         });
         
         
@@ -67,7 +67,6 @@
                 else if($(this).hasClass("match")){
                     return false;
                 }
-                    
                 updateMoves(moves);
                 updateRating();
                 if(openCards.length != -1){
@@ -155,13 +154,13 @@
         
         
         function displayCard(card,prevCard) {
+            /* add cards to openCard array only if it has not been already added before */
             if(!card.hasClass("open show") || !card.hasClass("match")) {
                 card.addClass("open show");
                 addToOpenCardList(card);
             }
             if(prevCard != null && moves % 2 == 0){
-               
-                if((prevCard != null) && (!checkForSameCard(card,prevCard)) && (prevCard.children().attr("class") === card.children().attr("class"))){
+                if((prevCard != null) && (!checkForSameCard(card,prevCard)) && (prevCard.children().attr("class") ===   card.children().attr("class"))){
                    lockMatchngCards(prevCard,card);
                 }
                 else {
