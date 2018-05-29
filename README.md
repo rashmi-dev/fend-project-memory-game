@@ -14,6 +14,11 @@ This repository is the starter code for _all_ Udacity students. Therefore, we mo
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## Dependencies
+
+1. [Bootstrap font awesome] (https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css)
+2. [Google font] (https://fonts.googleapis.com/css?family=Coda)
+3. [jQuery] (https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js)
 
 ## What the project does?
 
@@ -26,10 +31,6 @@ This includes a simple game mainly using jQuery,HTML and CSS. Click on the cards
 3. Allows to replay/restart the game at any given point.
 4. Close the window to exit the game.
 
-## Dependencies
 
-1. [Bootstrap font awesome] (https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css)
-2. [Google font] (https://fonts.googleapis.com/css?family=Coda)
-3. [jQuery] (https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js)
 
 
