@@ -1,11 +1,16 @@
     $(function () {
         let cards = [];
         let openCards = [];
+        let clickedCards = [];
         let moves = 0;
         let prevCard = null;
         let matchCard = [];
         let num_stars = 0;
         let interval = null;
+        
+        $("li.card").dblclick(function(e){
+            return false;
+        });
         
         /*
         * Create a list that holds all of your cards
@@ -25,15 +30,23 @@
         
         /* on card click function */
         $("li.card").click(function() {
-            moves++;
+           if(!$(this).hasClass("open show") && !$(this).hasClass("match")){
+                moves++;
+           }
             updateMoves(moves);
             updateRating();
             if(openCards.length != -1){
                 prevCard = openCards[openCards.length - 1];
             }
-            displayCard($(this),prevCard);
+           if(!$(this).hasClass("match") || !prevCard.hasClass("match")) {
+               displayCard($(this),prevCard);
+           }
+                
+           
+           
+            
         });
-
+        
         
         /* on replay button click on the winner page it resets the game and starts the timer */
         $(".replay,.restart").click( function() {
@@ -48,17 +61,23 @@
             displayCards(cards);
 
             $("li.card").click(function() {
-                moves++;
+                if(!$(this).hasClass("open show") && !$(this).hasClass("match")){
+                    moves++;
+                }
+                else if($(this).hasClass("match")){
+                    return false;
+                }
+                    
                 updateMoves(moves);
                 updateRating();
                 if(openCards.length != -1){
                     prevCard = openCards[openCards.length - 1];
                 }
                 displayCard($(this),prevCard);
-            });
+             });
          }
-
-
+        
+        
         /*
          * Display the cards on the page
          *   - shuffle the list of cards using the provided "shuffle" method below
@@ -72,8 +91,8 @@
                 $('<li class="card"><i class="'+obj+'"></i></li>').appendTo("ul.deck");
             });
         }
-
-
+        
+        
         // Shuffle function from http://stackoverflow.com/a/2450976
         function shuffle(array) {
             var currentIndex = array.length, temporaryValue, randomIndex;
@@ -86,7 +105,7 @@
             }
             return array;
         }
-
+        
         
         //Timer function from stackoverflow.com
         function displayTimer(clear) {
@@ -136,28 +155,39 @@
         
         
         function displayCard(card,prevCard) {
-            if(!card.hasClass("open show")) {
+            if(!card.hasClass("open show") || !card.hasClass("match")) {
                 card.addClass("open show");
                 addToOpenCardList(card);
             }
-            if(prevCard != null && moves % 2 == 0 ){
-                if(prevCard != null && prevCard.children().attr("class") === card.children().attr("class")){
-                    lockMatchngCards(prevCard,card);
+            if(prevCard != null && moves % 2 == 0){
+               
+                if((prevCard != null) && (!checkForSameCard(card,prevCard)) && (prevCard.children().attr("class") === card.children().attr("class"))){
+                   lockMatchngCards(prevCard,card);
                 }
                 else {
                     hideCards(prevCard,card);
                 }
             }
          }
-
-
+        
+        
+        function checkForSameCard(card,prevCard) {
+            let prevCardPos = prevCard.position();
+            let cardPos = card.position();
+            if(prevCardPos.left == cardPos.left && prevCardPos.top == cardPos.top){
+                return true;
+            }
+            return false;
+        }
+        
+        
         function addToOpenCardList(symbol) {
             if(!openCards.includes(symbol) && openCards.length < 17) {
                 openCards.push(symbol);
             }
         }
-
-
+        
+        
         function removeFromList(num) {
             for(var i = 0;i <= num;i++){
                openCards.pop(); 
@@ -167,6 +197,7 @@
 
         function hideCards(prevSym,nextSym) {
             setTimeout(function(){
+                if(!prevSym.hasClass("match") && !nextSym.hasClass("match"))
                prevSym.addClass("shake").removeClass("open show");
                nextSym.addClass("shake").removeClass("open show");
                removeFromList(2);
@@ -174,8 +205,8 @@
             prevSym.removeClass("shake");
             nextSym.removeClass("shake");
         }
-
-
+        
+        
         function lockMatchngCards(prevObj,thisObj) {
             prevObj.removeClass("open show").addClass("match");
             thisObj.removeClass("open show").addClass("match"); 
@@ -186,19 +217,19 @@
                 updateRating();
                 $(".container").addClass("displayNone");
                 $(".winner-page").removeClass("displayNone");
-                $("#moves-info").text("With "+moves+" moves and "+num_stars+" stars");
+                $("#moves-info").text("With "+moves+" moves and "+num_stars+" stars. Time taken to finish is "+$(".timer").text());
                 clearInterval(interval);
             }
         }
-
-
+        
+        
         function updateMoves(moves) {
            if(openCards.length <= 16) {
                 $(".moves").text(moves);
             }
         }
-
-
+        
+        
         function updateRating() {
             if ((moves <= 16 && moves >= 10) && matchCard.length <= 8) {
                 displayRating(3);
@@ -225,8 +256,8 @@
                 num_stars = 1;
             }  
         }
-
-
+        
+        
         function resetMoves() {
             moves=0;
             openCards.splice(0, openCards.length);
@@ -236,7 +267,7 @@
             clearInterval(interval);
             displayTimer();
         }
-
+        
         
         function displayRating(num) {
             $(".stars li").remove();
