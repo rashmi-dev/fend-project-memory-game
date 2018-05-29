@@ -9,12 +9,6 @@
         let interval = null;
         
         
-        /* disable double click on the cards */
-        $("li.card").dblclick(function(e){
-            return false;
-        });
-        
-        
         /*
         * Create a list that holds all of your cards
         */
@@ -45,6 +39,12 @@
            if(!$(this).hasClass("match") || !prevCard.hasClass("match")) {
                displayCard($(this),prevCard);
            }
+        });
+        
+        
+        /* disable double click on the cards */
+        $("li.card").dblclick(function(e){
+            return false;
         });
         
         
