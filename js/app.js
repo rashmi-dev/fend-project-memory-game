@@ -214,9 +214,12 @@
             
             if(matchCard.length === 16){
                 updateRating();
+                let countDown = $(".timer").text().split(":");
+                let min = 5 - parseInt(countDown[0]);
+                let sec = 60 - parseInt(countDown[1]);
                 $(".container").addClass("displayNone");
                 $(".winner-page").removeClass("displayNone");
-                $("#moves-info").text("With "+moves+" moves and "+num_stars+" stars. Time taken to finish is "+$(".timer").text());
+                $("#moves-info").text("With "+moves+" moves and "+num_stars+" stars. Time taken to win the game is "+min+":"+sec);
                 clearInterval(interval);
             }
         }
