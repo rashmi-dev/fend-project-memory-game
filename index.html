@@ -74,13 +74,27 @@
         </ul>
     </div>
     <section class="winner-page displayNone">
-           <div class="border-wall">
-              <i class="win-check fa fa-check-circle-o"></i>
-              <h2 id="win-headline">Congratulations! You won!</h2>
-              <div id="moves-info"></div>
-              <div id="happy-msg">Wohooooo!</div>
-              <input type="button" class="mrgT20 replay" value="Play again!"/>
+            <div class="border-wall bounce">
+                 <div class="win-block displayNone">
+                     <i class="win-check fa fa-check-circle-o"></i>
+                      <h2 id="win-headline">Congratulations! You won!</h2>
+                      <div id="challenge">You completed this challenge with:</div>
+                      <div id="move">Moves: <span></span></div>
+                      <div id="star">Stars: <span></span></div>
+                      <div id="time">Time: <span ></span></div>
+                      <div id="moves-info">Wohoooo!</div>
+                 </div>
+                 <div class="norm displayNone">
+                      <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                      <div id="challenge">You completed this challenge with:</div>
+                      <div id="move">Moves: <span></span></div>
+                      <div id="star">Stars: <span></span></div>
+                      <div id="time">Time: <span ></span></div>
+                      <div id="moves-info">Wohoooo!</div>
+                 </div>     
+                 <input type="button" class="mrgT20 replay" value="Play again!"/>
            </div>
+        </div>
     </section>
     <!-- all css and html related to the modal is from w3schools.com -->
     <div id="myModal" class="modal displayNone">

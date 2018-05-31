@@ -58,6 +58,8 @@
         function replay() {
             $(".container").removeClass("displayNone");
             $(".winner-page").addClass("displayNone");
+            $(".win-block").addClass("displayNone");
+            $(".norm").addClass("displayNone");
             displayCards(cards);
 
             $("li.card").click(function() {
@@ -207,8 +209,8 @@
         
         
         function lockMatchngCards(prevObj,thisObj) {
-            prevObj.removeClass("open show").addClass("match");
-            thisObj.removeClass("open show").addClass("match"); 
+            prevObj.removeClass("open show shake").addClass("pulse match");
+            thisObj.removeClass("open show shake").addClass("pulse match"); 
             matchCard.push(prevObj);
             matchCard.push(thisObj)
             
@@ -217,9 +219,24 @@
                 let countDown = $(".timer").text().split(":");
                 let min = 5 - parseInt(countDown[0]);
                 let sec = 60 - parseInt(countDown[1]);
+                let time = min+":"+sec;
                 $(".container").addClass("displayNone");
-                $(".winner-page").removeClass("displayNone");
-                $("#moves-info").text("With "+moves+" moves and "+num_stars+" stars. Time taken to win the game is "+min+":"+sec);
+                if(num_stars==5) {
+                    $(".winner-page").removeClass("displayNone");
+                    $(".win-block").removeClass("displayNone");
+                    $(".norm").addClass("displayNone"); 
+                    $("#move span").text(moves);
+                    $("#time span").text(time);
+                    $("#star span").text(num_stars); 
+                }
+                else {
+                    $(".winner-page").removeClass("displayNone");
+                    $(".norm").removeClass("displayNone"); 
+                    $(".win-block").addClass("displayNone");
+                    $("#move span").text(moves);
+                    $("#time span").text(time);
+                    $("#star span").text(num_stars); 
+                }
                 clearInterval(interval);
             }
         }
