@@ -391,7 +391,9 @@ input[type="button"] {
 
 
 .replay{
-    background: #7c599d;
+    font-size: 15px;
+    background: #74ca7b;
+    border: 1px solid #74ca7b!important;
 }
 
 
