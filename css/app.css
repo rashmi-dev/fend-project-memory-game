@@ -267,13 +267,13 @@ input[type="button"] {
     text-align: center;
     border-radius: 10px;
     background: linear-gradient(#fff,#a7a599);
-    border: 1px solid #35ef54;
+    border: 1px solid #c35077;
 }
 
 
 #challenge {
     font-size:20px;
-    color:  #ffa500;
+    color:  #c35077;
 }
 
 #move {
