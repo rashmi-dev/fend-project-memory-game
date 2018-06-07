@@ -219,9 +219,10 @@ h1 {
 
 
 input[type="button"] {
-    padding: 2% 5%;
+    padding: 3% 6%;
     font-weight: bold;
     border: 0;
+    font-size: 18px;
 }
 
 
@@ -262,7 +263,8 @@ input[type="button"] {
 
 
 .border-wall {
-    height: 50%;
+    height: auto;
+    padding: 2%;
     width: 55%;
     text-align: center;
     border-radius: 10px;
@@ -272,15 +274,17 @@ input[type="button"] {
 
 
 #challenge {
-    font-size:20px;
+    font-size:23px;
     color:  #c35077;
 }
 
 #move {
+    font-size: 20px;
     color: #6a9e70;
 }
 
 #star {
+    font-size: 20px;
     color: #ff0000;
 }
 
@@ -290,6 +294,7 @@ input[type="button"] {
 }
 
 #time {
+    font-size: 20px;
     color: #800080;
 }
 
@@ -392,8 +397,8 @@ input[type="button"] {
 
 .replay{
     font-size: 15px;
-    background: #74ca7b;
-    border: 1px solid #74ca7b!important;
+    background: #c35077;
+    border: 1px solid #c35077!important;
 }
 
 
